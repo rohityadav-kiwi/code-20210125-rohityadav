@@ -12,8 +12,8 @@ with open('data_file.json', 'r') as f:
 
 def cal_bmi(mass, height):
     height_in_m = height / 100
-    bmi_value = mass / (height_in_m ** 2)
-    return bmi_value
+    bmi_value_data = mass / (height_in_m ** 2)
+    return bmi_value_data
 
 
 def patient_data():
@@ -50,10 +50,7 @@ def patient_data():
             bmi_value.append(value)
             bmi_category.append("Very severely obese")
             health_risk.append("Very high risk")
-    print(name)
-    print(bmi_value)
-    print(bmi_category)
-    print(health_risk)
+            
     csvrows = [name, bmi_value, bmi_category, health_risk]
     export_data1 = zip_longest(*csvrows, fillvalue='')
     with open('/home/rohit/Documents/patient_status.csv', 'w', encoding="utf8", newline='') as f:
